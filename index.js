@@ -11,7 +11,7 @@ const prompts = async () => {
         type: 'list',
         name: 'shape',
         message: 'Choose what shape you would like for your logo:',
-        choices: ['circle, square, triangle'],
+        choices: ['circle', 'square', 'triangle'],
 
       },{
         type:"input",
@@ -33,21 +33,22 @@ const prompts = async () => {
             circle.setTextColor(response.textColor)
             circle.setShapeColor(response.shapeColor)
             circle.setText(response.text)
-            fs.writeFileSync("./Assets/circle.svg",circle.render())
+            console.log(circle.render())
+            fs.writeFileSync("./Assets/circle-local.svg",circle.render())
         }
         if(response.shape==="square"){
             const square = new Square()
             square.setTextColor(response.textColor)
             square.setShapeColor(response.shapeColor)
             square.setText(response.text)
-            fs.writeFileSync("./Assets/square.svg",square.render())
+            fs.writeFileSync("./Assets/square-local.svg",square.render())
         }
         if(response.shape==="triangle"){
             const triangle = new Triangle()
             triangle.setTextColor(response.textColor)
             triangle.setShapeColor(response.shapeColor)
             triangle.setText(response.text)
-            fs.writeFileSync("./Assets/triangle.svg",triangle.render())
+            fs.writeFileSync("./Assets/triangle-local.svg",triangle.render())
         }
       })
 
